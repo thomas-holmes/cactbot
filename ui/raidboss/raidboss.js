@@ -48,16 +48,10 @@ UserConfig.getUserConfigLocation('raidboss', function(e) {
     gTimelineController.OnLogEvent(e);
   });
   
-  if (window.callOverlayHandler) {
-    callOverlayHandler({
-      call: 'cactbotReadDataFiles',
-      source: location.href,
-    }).then((e) => gTimelineController.SetDataFiles(e.detail.files));
-  } else {
-    addOverlayListener('onDataFilesRead', function(e) {
-      gTimelineController.SetDataFiles(e.detail.files);
-    });
-  }
+  callOverlayHandler({
+    call: 'cactbotReadDataFiles',
+    source: location.href,
+  }).then((e) => gTimelineController.SetDataFiles(e.detail.files));
 
   gTimelineController = new TimelineController(Options, new TimelineUI(Options));
   gPopupText = new PopupText(Options);

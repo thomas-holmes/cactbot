@@ -954,7 +954,7 @@ document.addEventListener('DOMContentLoaded', function() {
   );
   gLogCollector = new LogCollector(gEmulatorView.AddFight.bind(gEmulatorView));
 
-  document.addEventListener('onPlayerChangedEvent', function(e) {
+  addOverlayListener('onPlayerChangedEvent', function(e) {
     document.getElementById('player').textContent = e.detail.name;
   });
 
